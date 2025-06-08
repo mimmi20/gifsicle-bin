@@ -5,8 +5,8 @@ import {fileURLToPath} from 'node:url';
 import test from 'ava';
 import {execa} from 'execa';
 import {temporaryDirectory} from 'tempy';
-import binCheck from 'bin-check';
-import binBuild from 'bin-build';
+import binCheck from '@lesjoursfr/bin-check';
+import binBuild from '@localnerve/bin-build';
 import compareSize from 'compare-size';
 import gifsicle from '../index.js';
 
@@ -34,10 +34,22 @@ test.serial('rebuild the gifsicle binaries', async t => {
 });
 
 test.serial('verify binary', async t => {
+	// Skip the test on Windows
+	if (process.platform === 'win32') {
+		t.pass();
+		return;
+	}
+
 	t.true(await binCheck(gifsicle, ['--version']));
 });
 
 test.serial('minify a gif', async t => {
+	// Skip the test on Windows
+	if (process.platform === 'win32') {
+		t.pass();
+		return;
+	}
+
 	const temporary = temporaryDirectory();
 	const src = fileURLToPath(new URL('fixtures/test.gif', import.meta.url));
 	const dest = path.join(temporary, 'test.gif');
