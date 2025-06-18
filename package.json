@@ -44,7 +44,7 @@
 		"ava": "^6.4.0",
 		"@lesjoursfr/bin-check": "^7.1.9",
 		"compare-size": "^3.0.0",
-		"tempy": "^3.0.0",
+		"tempy": "^3.1.0",
 		"xo": "^1.1.0"
 	}
 }
