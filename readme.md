@@ -6,8 +6,8 @@ You probably want [`imagemin-gifsicle`](https://github.com/imagemin/imagemin-gif
 
 ## Install
 
-```
-$ npm install gifsicle
+```shell
+npm install gifsicle
 ```
 
 ## Usage
@@ -17,16 +17,16 @@ import {execFile} from 'node:child_process';
 import gifsicle from 'gifsicle';
 
 execFile(gifsicle, ['-o', 'output.gif', 'input.gif'], error => {
-	console.log('Image minified!');
+  console.log('Image minified!');
 });
 ```
 
 ## CLI
 
-```
-$ npm install --global gifsicle
+```shell
+npm install --global gifsicle
 ```
 
-```
-$ gifsicle --help
+```shell
+gifsicle --help
 ```
